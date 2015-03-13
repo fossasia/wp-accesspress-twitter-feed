@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Display real-time Twitter feeds on your website. Update your website visitors with your latest Tweets.
 
 == Description ==
-<strong>AccessPress Twitter Feed</strong> is a <strong>FREE Twitter plugin</strong> for WordPress. It just takes a few minute to set it up and use. Start strong Twitter integration right on your website and increase your social reach to next level. 
+<strong>AccessPress Twitter Feed</strong> is a FREE Twitter plugin for WordPress. You can use this to display real time Twitter feeds on any where on your webiste by using shortcode or widgets. Display tweets as a feed or in slider. It just takes a few minute to set it up and use. Start strong Twitter integration right on your website and increase your social reach to next level.
 
  
 
