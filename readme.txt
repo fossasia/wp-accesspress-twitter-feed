@@ -51,7 +51,7 @@ For complete information and documentation regarding plugin,please visit below l
 
 [Documentation](https://accesspressthemes.com/documentation/documentationplugin-instruction-accesspress-twitter-feed/)
 
-[Demo](https://wordpress.org/plugins/accesspress-twitter-feed/)
+[Demo](http://accesspressthemes.com/demo/wordpress-plugins/accesspress-twitter-feed/)
 
 
 == Installation ==
