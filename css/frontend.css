@@ -256,7 +256,7 @@ and open the template in the editor.
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     max-width: 100%;
 }
-.aptf-follow-btn a{
+a.aptf-follow-link{
     border-bottom: none !important;
     text-decoration: none !important;
 }
@@ -278,4 +278,7 @@ and open the template in the editor.
 }
 .aptf-seperator{
     padding: 8px;
+}
+a.aptf-follow-link:focus{
+    outline:none !important;
 }
