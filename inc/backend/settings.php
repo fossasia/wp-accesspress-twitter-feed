@@ -1,0 +1,49 @@
+<?php 
+$aptf_settings = $this->aptf_settings;
+//$this->print_array($aptf_settings);
+?>
+<div class="wrap">
+    <div class="aptf-panel">
+        <?php include('header.php'); ?>
+        <div class="aptf-nav">
+            <ul>
+                <li><a href="javascript:void(0)" id="aptf-settings-trigger" class="aptf-tabs-trigger aptf-active-trigger"><?php _e('Settings', APTF_VERSION); ?></a></li>
+                <li><a href="javascript:void(0)" id="aptf-how_to_use-trigger" class="aptf-tabs-trigger"><?php _e('How To Use', APTF_VERSION); ?></a></li>
+                <li><a href="javascript:void(0)" id="aptf-about-trigger" class="aptf-tabs-trigger"><?php _e('About', APTF_VERSION); ?></a></li>
+            </ul>
+        </div>
+        <div class="aptf-board-wrapper">
+            <?php if(isset($_SESSION['aptf_msg'])){?>
+            <div class="aptf-message"><?php echo $_SESSION['aptf_msg'];unset($_SESSION['aptf_msg']);?></div>
+            <?php }
+            ?>
+            <form method="post" action="<?php echo admin_url().'admin-post.php';?>">
+                <input type="hidden" name="action" value="aptf_form_action"/>
+                <?php 
+        /**
+         * Settings Panel
+         */
+        include('boards/main-settings.php');
+        
+        /**
+         * How To use Panel
+         */
+        include('boards/how-to-use.php');
+        
+        /**
+         * About Panel
+         */
+        include('boards/about.php');
+        ?>
+        <?php 
+        wp_nonce_field('aptf_action_nonce','aptf_nonce_field');
+        $restore_nonce = wp_create_nonce('aptf-restore-nonce');
+        ?>
+        <input type="submit" name="aptf_settings_submit" value="<?php _e('Save Settings',APTF_TD);?>" class="button button-primary"/>
+        <a href="<?php echo admin_url().'admin-post.php?action=aptf_restore_settings&_wpnonce='.$restore_nonce;?>" onclick="return confirm('<?php _e('Are you sure you want to restore default settings?',APTF_TD)?>');"><input type="button" value="<?php _e('Restore Default Settings',APTF_TD);?>" class="button button-primary"/></a>
+        <a href="<?php echo admin_url().'admin-post.php?action=aptf_delete_cache';?>" onclick="return confirm('<?php _e('Are you sure you want to delete cache?',APTF_TD)?>');"><input type="button" value="<?php _e('Delete Cache',APTF_TD);?>" class="button button-primary"/></a>
+    </form>
+</div>
+</div>
+</div>
+
