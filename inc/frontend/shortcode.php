@@ -16,8 +16,9 @@ if(isset($atts['follow_button'])){
     
 }
 if(isset($tweets['error'])){
+    $fallback_message = ($aptf_settings['fallback_message']=='')?__('Something went wrong with the twitter.',APTF_TD):$aptf_settings['fallback_message'];
     ?>
-<p><?php _e('Something went wrong with the twitter.',APTF_TD);?></p>
+<p><?php echo $fallback_message;?></p>
         <?php
 }
 else
