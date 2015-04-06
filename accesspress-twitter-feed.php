@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.0.2
+ * Version: 1.1.0
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: ap-twitter-feed
@@ -24,7 +24,7 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.0.2');
+    define('APTF_VERSION', '1.1.0');
 }
 
 if (!defined('APTF_TD')) {
@@ -32,6 +32,7 @@ if (!defined('APTF_TD')) {
 }
 include_once('inc/backend/widget.php');
 include_once('inc/backend/slider-widget.php');
+include_once("twitteroauth/twitteroauth.php");
 if (!class_exists('APTF_Class')) {
 
     class APTF_Class {
@@ -82,6 +83,7 @@ if (!class_exists('APTF_Class')) {
             if (!get_option('aptf_settings')) {
                 update_option('aptf_settings', $default_settings);
             }
+            delete_transient('aptf_tweets');
         }
 
         /**
@@ -131,39 +133,7 @@ if (!class_exists('APTF_Class')) {
             return $default_settings;
         }
         
-        /**
-         * 
-         * @param string $username
-         * @param int $count
-         * @param array $options
-         * @return array
-         */
-        function get_tweets($username = false, $count = 20, $options = false) {
-            include_once('APTF.class.php');
-            $aptf_settings = $this->aptf_settings;
-            $config['key'] = $aptf_settings['consumer_key'];
-            $config['secret'] = $aptf_settings['consumer_secret'];
-            $config['token'] = $aptf_settings['access_token'];
-            $config['token_secret'] = $aptf_settings['access_token_secret'];
-            $config['screenname'] = $aptf_settings['twitter_username'];
-            $config['directory'] = plugin_dir_path(__FILE__);
-            $tweets = get_transient('aptf_tweets');
-            if (false === $tweets) {
-                $cache_period = intval($aptf_settings['cache_period']) * 60;
-                $cache_period = ($cache_period < 1) ? 3600 : $cache_period;
-                $obj = new APTF_Twitter_Class($config);
-                $res = $obj->getTweets($username, $count, $options);
-                if(!isset($res['error'])){
-                    set_transient('aptf_tweets', $res, $cache_period);
-                }
-                
-            } else {
-                $res = $tweets;
-            }
-
-
-            return $res;
-        }
+       
 
         /**
          * Prints array in pre format
@@ -250,6 +220,7 @@ if (!class_exists('APTF_Class')) {
             $current_date = strtotime(date('h:i A M d Y'));
             $tweet_date = strtotime($date);
             $total_seconds = $current_date - $tweet_date;
+           
             $seconds = $total_seconds % 60;
             $total_minutes = $total_seconds / 60;
             ;
@@ -260,14 +231,37 @@ if (!class_exists('APTF_Class')) {
             $days = $total_days % 365;
             $years = $total_days / 365;
 
-            if ($years > 1) {
-                $date = $years . __(' year ago', APTF_TD);
-            } elseif ($days > 1) {
-                $date = $days . __(' days ago', APTF_TD);
-            } elseif ($hours > 1) {
-                $date = $hours . __(' hours ago', APTF_TD);
+            if ($years >= 1) {
+                if($years == 1){
+                    $date = $years . __(' year ago', APTF_TD);
+                }
+                else
+                {
+                    $date = $years . __(' year ago', APTF_TD);    
+                }
+                
+            } elseif ($days >= 1) {
+                if($days == 1){
+                $date = $days . __(' day ago', APTF_TD);    
+                }
+                else
+                {
+                    $date = $days . __(' days ago', APTF_TD);
+                }
+                
+            } elseif ($hours >= 1) {
+                if($hours == 1){
+                 $date = $hours . __(' hour ago', APTF_TD);    
+                }
+                else
+                {
+                    $date = $hours . __(' hours ago', APTF_TD);
+                }
+                
             } elseif ($minutes > 1) {
-                $date = $minutes . __(' minutes ago', APTF_TD);
+                                    $date = $minutes . __(' minutes ago', APTF_TD);
+                
+                
             } else {
                 $date = __("1 minute ago", APTF_TD);
                 }
@@ -295,6 +289,35 @@ if (!class_exists('APTF_Class')) {
             wp_enqueue_script('aptf-front-js',APTF_JS_DIR.'/frontend.js',array('jquery','aptf-bxslider'),APTF_VERSION);
             wp_enqueue_style('aptf-front-css',APTF_CSS_DIR.'/frontend.css',array(),APTF_VERSION);
             wp_enqueue_style('aptf-font-css',APTF_CSS_DIR.'/fonts.css',array(),APTF_VERSION);
+        }
+        
+        /**
+         * New Functions
+         * */
+         function get_oauth_connection($cons_key, $cons_secret, $oauth_token, $oauth_token_secret){
+        	$ai_connection = new TwitterOAuth($cons_key, $cons_secret, $oauth_token, $oauth_token_secret);
+        	return $ai_connection;
+        }
+
+        function get_twitter_tweets($username,$tweets_number){
+            $tweets = get_transient('aptf_tweets');
+            if (false === $tweets) {
+                $aptf_settings = $this->aptf_settings;
+                $consumer_key = $aptf_settings['consumer_key'];
+                $consumer_secret = $aptf_settings['consumer_secret'];
+                $access_token = $aptf_settings['access_token'];
+                $access_token_secret = $aptf_settings['access_token_secret'];
+        	    $oauth_connection = $this->get_oauth_connection($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+        	    $tweets = $oauth_connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$tweets_number);
+                $cache_period = intval($aptf_settings['cache_period']) * 60;
+                $cache_period = ($cache_period < 1) ? 3600 : $cache_period;
+                if(!isset($tweets->errors)){
+                    set_transient('aptf_tweets', $tweets, $cache_period);
+                }
+                
+            } 
+            
+        	return $tweets;
         }
         
         

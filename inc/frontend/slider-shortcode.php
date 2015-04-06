@@ -1,7 +1,7 @@
 <?php
 $aptf_settings = $this->aptf_settings;
 $username = $aptf_settings['twitter_username'];
-$tweets = $this->get_tweets($username, $aptf_settings['total_feed']);
+$tweets = $this->get_twitter_tweets($username, $aptf_settings['total_feed']);
 $template = isset($atts['template'])?$atts['template']:'template-1';
 $auto_slide = isset($atts['auto_slide'])?$atts['auto_slide']:'true';
 $slide_controls = isset($atts['controls'])?$atts['controls']:'true';
@@ -15,7 +15,8 @@ if(isset($atts['follow_button'])){
 }
     
 }
-if(isset($tweets['error'])){
+if(isset($tweets->errors)){
+    //$this->print_array($tweets);
     $fallback_message = ($aptf_settings['fallback_message']=='')?__('Something went wrong with the twitter.',APTF_TD):$aptf_settings['fallback_message'];
     ?>
 <p><?php echo $fallback_message;?></p>
