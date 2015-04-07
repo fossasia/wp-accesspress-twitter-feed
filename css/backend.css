@@ -170,3 +170,26 @@ and open the template in the editor.
 #aptf-about-board h3{
   padding-bottom: 0;
 }
+.aptf-promo {
+  float: left;
+  width: 27%;
+  margin-left: 20px;
+}
+input.aptf-demo-btn {
+  background: #FFFFFF;
+  width: 147px;
+  height: 43px;
+  border-radius: 5px;
+}
+input.aptf-upgrade-btn {
+  background: #C10100;
+  width: 147px;
+  height: 43px;
+  border-radius: 5px;
+  color:white;
+}
+.aptf-promo-actions {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.aptf-promo-actions input[type="button"]:hover{cursor: pointer;}
