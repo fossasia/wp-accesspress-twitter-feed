@@ -15,17 +15,7 @@
                         <?php
                         if ($tweet->text) {
                             $the_tweet = ' '.$tweet->text . ' '; //adding an extra space to convert hast tag into links
-                            /*
-                              Twitter Developer Display Requirements
-                              https://dev.twitter.com/terms/display-requirements
-
-                              2.b. Tweet Entities within the Tweet text must be properly linked to their appropriate home on Twitter. For example:
-                              i. User_mentions must link to the mentioned user's profile.
-                              ii. Hashtags must link to a twitter.com search with the hashtag as the query.
-                              iii. Links in Tweet text must be displayed using the display_url
-                              field in the URL entities API response, and link to the original t.co url field.
-                             */
-
+                            
                             // i. User_mentions must link to the mentioned user's profile.
                             if (is_array($tweet->entities->user_mentions)) {
                                 foreach ($tweet->entities->user_mentions as $key => $user_mention) {
@@ -61,29 +51,12 @@
                     </div>
                     <?php if ($aptf_settings['display_username'] == 1) { ?><a href="http://twitter.com/<?php echo $username; ?>" class="aptf-tweet-name" target="_blank"><?php echo $username; ?></a> <?php } ?>
                     <div class="aptf-tweet-date">
-                        <?php
-                        // 3. Tweet Actions
-                        //    Reply, Retweet, and Favorite action icons must always be visible for the user to interact with the Tweet. These actions must be implemented using Web Intents or with the authenticated Twitter API.
-                        //    No other social or 3rd party actions similar to Follow, Reply, Retweet and Favorite may be attached to a Tweet.
-                        // get the sprite or images from twitter's developers resource and update your stylesheet
-                        //  echo '
-//        <div class="twitter_intents">
-//            <p><a class="reply" href="https://twitter.com/intent/tweet?in_reply_to='.$tweet['id_str'].'">Reply</a></p>
-//            <p><a class="retweet" href="https://twitter.com/intent/retweet?tweet_id='.$tweet['id_str'].'">Retweet</a></p>
-//            <p><a class="favorite" href="https://twitter.com/intent/favorite?tweet_id='.$tweet['id_str'].'">Favorite</a></p>
-//        </div>';  
-                        // 4. Tweet Timestamp
-                        //    The Tweet timestamp must always be visible and include the time and date. e.g., “3:00 PM - 31 May 12”.
-                        // 5. Tweet Permalink
-                        //    The Tweet timestamp must always be linked to the Tweet permalink.
-                        ?>
-
                         <p class="aptf-timestamp">
                             <a href="https://twitter.com/<?php echo $username; ?>/status/<?php echo $tweet->id_str; ?>" target="_blank"> -
                                 <?php echo $this->get_date_format($tweet->created_at, $aptf_settings['time_format']); ?>
                             </a>
                         </p>
-
+                    </div><!--tweet_date-->
                         <?php
                     } else {
                         ?>
@@ -92,7 +65,7 @@
                         <?php
                     }
                     ?>
-                </div><!--tweet_date-->
+               
 
 
 

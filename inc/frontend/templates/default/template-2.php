@@ -15,17 +15,7 @@
                    <?php
                         if ($tweet->text) {
                             $the_tweet = $tweet->text . ' '; //adding an extra space to convert hast tag into links
-                            /*
-                              Twitter Developer Display Requirements
-                              https://dev.twitter.com/terms/display-requirements
-
-                              2.b. Tweet Entities within the Tweet text must be properly linked to their appropriate home on Twitter. For example:
-                              i. User_mentions must link to the mentioned user's profile.
-                              ii. Hashtags must link to a twitter.com search with the hashtag as the query.
-                              iii. Links in Tweet text must be displayed using the display_url
-                              field in the URL entities API response, and link to the original t.co url field.
-                             */
-
+                            
                             // i. User_mentions must link to the mentioned user's profile.
                             if (is_array($tweet->entities->user_mentions)) {
                                 foreach ($tweet->entities->user_mentions as $key => $user_mention) {
@@ -59,7 +49,7 @@
                                 <?php echo $this->get_date_format($tweet->created_at, $aptf_settings['time_format']); ?>
                             </a>
                         </p>
-
+                    </div><!--tweet_date-->
                         <?php
                     } else {
                         ?>
@@ -68,7 +58,7 @@
                         <?php
                     }
                     ?>
-                </div><!--tweet_date-->
+                
                 <?php if (isset($aptf_settings['display_twitter_actions']) && $aptf_settings['display_twitter_actions'] == 1) { ?>
                     <!--Tweet Action -->
                     <?php include(plugin_dir_path(__FILE__) . '../tweet-actions.php'); ?>
