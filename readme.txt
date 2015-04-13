@@ -16,7 +16,7 @@ Display real-time Twitter feeds on your website. Update your website visitors wi
  
 
 
-= Features: =
+= Free Features: =
 
 * <strong>Fetch latest tweets from any account</strong>
 * <strong>Configurable number of tweets to display</strong>
@@ -32,6 +32,30 @@ Display real-time Twitter feeds on your website. Update your website visitors wi
         - Dedicated email, forum support
 * <strong>Free updates</strong>
         - Get free updates for lifetime.
+        
+= Premium Features: =
+	★ Multiple Twitter Accounts Support
+
+	★ Beautifully designed 12 themes to select from
+
+	★ Tweets Media(Image) Embeds Support
+
+	★ Twitter Timeline layout included
+
+	★ Slider mode available with more configurable options
+
+	★ Ticker mode available with various configurable options
+
+	★ Advanced Caching option to prevent frequent API calls
+
+	★ Super support – get support via email/support forum/online chat 
+	
+	★ And many more...
+
+
+= Premium Upgrade = 
+* For premium upgrade, please go [here](https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed-pro/)
+
 
 
 = Some Useful Links =
