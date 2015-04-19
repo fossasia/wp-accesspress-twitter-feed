@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: ap-twitter-feed
@@ -24,7 +24,7 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.1.2');
+    define('APTF_VERSION', '1.1.3');
 }
 
 if (!defined('APTF_TD')) {
@@ -162,7 +162,7 @@ if (!class_exists('APTF_Class')) {
             if (!empty($_GET) && wp_verify_nonce($_GET['_wpnonce'], 'aptf-restore-nonce')) {
                 $aptf_settings = $this->get_default_settings();
                 update_option('aptf_settings', $aptf_settings);
-                $_SESSION['aptf_msg'] = __('Restored Default Settings Successfully.', APTF_TD);
+                $_SESSION['aptf_msg'] = __('Default Settings Restored Successfully.', APTF_TD);
                 wp_redirect(admin_url() . 'admin.php?page=ap-twitter-feed');
             } else {
                 die('No script kiddies please!');

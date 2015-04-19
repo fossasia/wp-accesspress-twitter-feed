@@ -107,6 +107,10 @@ Once you install the plugin , you can check some general documentation about how
 
 
 == Changelog ==
+= 1.1.3 = 
+* Done some update in upgrade sidebar
+* Updated backend message
+
 = 1.1.2 = 
 * Done some code cleanup for default templates
 * Fixed div structure for date format 
