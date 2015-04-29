@@ -14,7 +14,7 @@
                     <div class="aptf-tweet-box">
                         <?php
                         if ($tweet->text) {
-                            $the_tweet = $tweet->text . ' '; //adding an extra space to convert hast tag into links
+                            $the_tweet = ' '.$tweet->text . ' '; //adding an extra space to convert hast tag into links
                             /*
                               Twitter Developer Display Requirements
                               https://dev.twitter.com/terms/display-requirements

@@ -20,7 +20,7 @@
                     <div class="clear"></div>
                    <?php
                         if ($tweet->text) {
-                            $the_tweet = $tweet->text . ' '; //adding an extra space to convert hast tag into links
+                            $the_tweet = ' '.$tweet->text . ' '; //adding an extra space to convert hast tag into links
                             
                             // i. User_mentions must link to the mentioned user's profile.
                             if (is_array($tweet->entities->user_mentions)) {
