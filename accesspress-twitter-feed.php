@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: ap-twitter-feed

@@ -17,7 +17,8 @@ function aptf_popitup(url) {
               controls:controls,
               pause:slide_duration,
               pager:false,
-              speed:1500
+              speed:1500,
+              adaptiveHeight:true
           });
        });
        
