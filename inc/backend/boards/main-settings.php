@@ -94,7 +94,7 @@
         <label><?php _e('Fallback Unavailable Message', APTF_TD); ?></label>
         <div class="aptf-option-field">
             <input type="text" name="fallback_message" value="<?php echo isset($aptf_settings['fallback_message']) ? esc_attr($aptf_settings['fallback_message']) : ''; ?>"/>
-            <div class="aptf-option-note"><?php _e('Please enter the message to display if the twitter is unavailable sometime.', APTF_TD); ?></div>
+            <div class="aptf-option-note"><?php _e('Please enter the message to display if the twitter API is unavailable sometime.', APTF_TD); ?></div>
         </div>
     </div>
     <div class="aptf-option-wrapper">
