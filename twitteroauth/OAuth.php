@@ -9,6 +9,7 @@ if (!class_exists('OAuthException')) {
   }
 }
 
+if(!class_exists('OAuthConsumer')){
 class OAuthConsumer {
   public $key;
   public $secret;
@@ -23,7 +24,9 @@ class OAuthConsumer {
     return "OAuthConsumer[key=$this->key,secret=$this->secret]";
   }
 }
+}
 
+if(!class_exists('OAuthToken')){
 class OAuthToken {
   // access tokens and request tokens
   public $key;
@@ -53,11 +56,13 @@ class OAuthToken {
     return $this->to_string();
   }
 }
+}
 
 /**
  * A class for implementing a Signature Method
  * See section 9 ("Signing Requests") in the spec
  */
+ if(!class_exists('OAuthSignatureMethod')){
 abstract class OAuthSignatureMethod {
   /**
    * Needs to return the name of the Signature Method (ie HMAC-SHA1)
@@ -90,6 +95,7 @@ abstract class OAuthSignatureMethod {
     return $built == $signature;
   }
 }
+}
 
 /**
  * The HMAC-SHA1 signature method uses the HMAC-SHA1 signature algorithm as defined in [RFC2104] 
@@ -98,6 +104,7 @@ abstract class OAuthSignatureMethod {
  * character (ASCII code 38) even if empty.
  *   - Chapter 9.2 ("HMAC-SHA1")
  */
+ if(!class_exists('OAuthSignatureMethod_HMAC_SHA1')){
 class OAuthSignatureMethod_HMAC_SHA1 extends OAuthSignatureMethod {
   function get_name() {
     return "HMAC-SHA1";
@@ -118,12 +125,14 @@ class OAuthSignatureMethod_HMAC_SHA1 extends OAuthSignatureMethod {
     return base64_encode(hash_hmac('sha1', $base_string, $key, true));
   }
 }
+}
 
 /**
  * The PLAINTEXT method does not provide any security protection and SHOULD only be used 
  * over a secure channel such as HTTPS. It does not use the Signature Base String.
  *   - Chapter 9.4 ("PLAINTEXT")
  */
+ if(!class_exists('OAuthSignatureMethod_PLAINTEXT')){
 class OAuthSignatureMethod_PLAINTEXT extends OAuthSignatureMethod {
   public function get_name() {
     return "PLAINTEXT";
@@ -151,6 +160,7 @@ class OAuthSignatureMethod_PLAINTEXT extends OAuthSignatureMethod {
     return $key;
   }
 }
+}
 
 /**
  * The RSA-SHA1 signature method uses the RSASSA-PKCS1-v1_5 signature algorithm as defined in 
@@ -160,6 +170,7 @@ class OAuthSignatureMethod_PLAINTEXT extends OAuthSignatureMethod {
  * specification.
  *   - Chapter 9.3 ("RSA-SHA1")
  */
+ if(!class_exists('OAuthSignatureMethod_RSA_SHA1')){
 abstract class OAuthSignatureMethod_RSA_SHA1 extends OAuthSignatureMethod {
   public function get_name() {
     return "RSA-SHA1";
@@ -218,7 +229,9 @@ abstract class OAuthSignatureMethod_RSA_SHA1 extends OAuthSignatureMethod {
     return $ok == 1;
   }
 }
+}
 
+if(!class_exists('OAuthRequest')){
 class OAuthRequest {
   private $parameters;
   private $http_method;
@@ -479,7 +492,9 @@ class OAuthRequest {
     return md5($mt . $rand); // md5s look nicer than numbers
   }
 }
+}
 
+if(!class_exists('OAuthServer')){
 class OAuthServer {
   protected $timestamp_threshold = 300; // in seconds, five minutes
   protected $version = '1.0';             // hi blaine
@@ -690,7 +705,9 @@ class OAuthServer {
   }
 
 }
+}
 
+if(!class_exists('OAuthDataStore')){
 class OAuthDataStore {
   function lookup_consumer($consumer_key) {
     // implement me
@@ -716,7 +733,9 @@ class OAuthDataStore {
   }
 
 }
+}
 
+if(!class_exists('OAuthUtil')){
 class OAuthUtil {
   public static function urlencode_rfc3986($input) {
   if (is_array($input)) {
@@ -871,4 +890,5 @@ class OAuthUtil {
     // Each name-value pair is separated by an '&' character (ASCII code 38)
     return implode('&', $pairs);
   }
+}
 }
