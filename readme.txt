@@ -108,7 +108,7 @@ Once you install the plugin , you can check some general documentation about how
 
 == Changelog ==
 = 1.2.5 = 
-*  
+*  Checked oauth class exists with PHP to prevent conflict 
 
 = 1.2.4 = 
 * Checked API class exists with PHP to prevent conflict 
