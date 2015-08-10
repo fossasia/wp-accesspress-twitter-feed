@@ -3,8 +3,8 @@ Contributors: Access Keys
 Tags: twitter, twitter feeds, twitter slider, twitter feeds slider, twitter plugin, twitter feed plugin, twitter tweets, tweets, twitter tweet plugin, recent tweets widget, recent tweets plugin, recent tweet feeds
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
-Tested up to: 4.2
-Stable tag: 1.2.6
+Tested up to: 4.3
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,6 +107,9 @@ Once you install the plugin , you can check some general documentation about how
 
 
 == Changelog ==
+= 1.2.7 = 
+* Added some sanitization while saving the values in database
+
 = 1.2.6 = 
 * Done some modifications with default settings
 
