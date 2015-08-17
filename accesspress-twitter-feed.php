@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.2.7
+ * Version: 1.2.8
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: ap-twitter-feed
@@ -24,7 +24,7 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.2.6');
+    define('APTF_VERSION', '1.2.8');
 }
 
 if (!defined('APTF_TD')) {
