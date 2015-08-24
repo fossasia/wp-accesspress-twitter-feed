@@ -51,13 +51,13 @@ $aptf_settings = $this->aptf_settings;
     <div class="aptf-promo">
         <a href="http://codecanyon.net/item/accesspress-twitter-feed-pro/11029697?ref=AccessKeys" target="_blank"><img src="<?php echo APTF_IMAGE_DIR . '/upgrade-1.jpg' ?>"/></a>
         <div class="aptf-promo-actions">
-            <a href="http://accesspressthemes.com/demo/wordpress-plugins/accesspress-twitter-feed-pro/" title="Demo" target="_blank"><input type="button" class="aptf-demo-btn" value="Demo"/></a>
+            <a href="http://demo.accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed-pro/" title="Demo" target="_blank"><input type="button" class="aptf-demo-btn" value="Demo"/></a>
             <a href="http://codecanyon.net/item/accesspress-twitter-feed-pro/11029697?ref=AccessKeys" title="Upgrade" target="_blank"><input type="button" class="aptf-upgrade-btn" value="Upgrade"/></a>
         </div>
 
         <a href="http://codecanyon.net/item/accesspress-twitter-feed-pro/11029697?ref=AccessKeys" target="_blank"><img src="<?php echo APTF_IMAGE_DIR . '/upgrade-2.jpg' ?>"/></a>
         <div class="aptf-promo-actions">
-            <a href="http://accesspressthemes.com/demo/wordpress-plugins/accesspress-twitter-feed-pro/" title="Demo" target="_blank"><input type="button" class="aptf-demo-btn" value="Demo"/></a>
+            <a href="http://demo.accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed-pro/" title="Demo" target="_blank"><input type="button" class="aptf-demo-btn" value="Demo"/></a>
             <a href="http://codecanyon.net/item/accesspress-twitter-feed-pro/11029697?ref=AccessKeys" title="Upgrade" target="_blank"><input type="button" class="aptf-upgrade-btn" value="Upgrade"/></a>
         </div>
     </div>
