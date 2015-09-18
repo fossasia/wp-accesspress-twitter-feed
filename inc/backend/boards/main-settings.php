@@ -53,7 +53,7 @@
         <label><?php _e('Total Number of Feed', APTF_TD); ?></label>
         <div class="aptf-option-field">
             <input type="number" name="total_feed" value="<?php echo isset($aptf_settings['total_feed']) ? esc_attr($aptf_settings['total_feed']) : ''; ?>" placeholder="e.g: 5"/>
-            <div class="aptf-option-note"><?php _e('Please enter the number of feeds to be fetched.Default number of feeds is 5.', APTF_TD); ?></div>
+            <div class="aptf-option-note"><?php _e('Please enter the number of feeds to be fetched.Default number of feeds is 5.And please don\'t forget to delete cache once you change the number of tweets using delete cache button below.', APTF_TD); ?></div>
         </div>
     </div>
     <div class="aptf-option-wrapper">

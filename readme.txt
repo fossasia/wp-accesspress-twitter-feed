@@ -4,7 +4,7 @@ Tags: twitter, twitter feeds, twitter slider, twitter feeds slider, twitter plug
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.3
-Stable tag: 1.2.9
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -107,7 +107,14 @@ Once you install the plugin , you can check some general documentation about how
 
 
 == Changelog ==
-= Added Escaping for output values in plugin settings fields 
+= 1.3.1 = 
+* Updated note for total number of tweets field 
+
+= 1.3.0 = 
+* Updated Menu Icon
+
+= 1.2.8 = 
+* Added Escaping for output values in plugin settings fields 
 
 = 1.2.7 = 
 * Added some sanitization while saving the values in database

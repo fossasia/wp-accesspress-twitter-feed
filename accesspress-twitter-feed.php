@@ -4,7 +4,7 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.2.9
+ * Version: 1.3.1
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
  * Text Domain: ap-twitter-feed
@@ -24,7 +24,7 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.2.9');
+    define('APTF_VERSION', '1.3.0');
 }
 
 if (!defined('APTF_TD')) {
@@ -90,7 +90,7 @@ if (!class_exists('APTF_Class')) {
          * Adds plugin's menu in the admin section
          */
         function add_plugin_admin_menu() {
-            add_menu_page(__('AccessPress Twitter Feed', APTF_TD), __('AccessPress Twitter Feed', APTF_TD), 'manage_options', 'ap-twitter-feed', array($this, 'main_setting_page'), APTF_IMAGE_DIR . '/icon.png');
+            add_menu_page(__('AccessPress Twitter Feed', APTF_TD), __('AccessPress Twitter Feed', APTF_TD), 'manage_options', 'ap-twitter-feed', array($this, 'main_setting_page'), 'dashicons-twitter');
         }
 
         /**
