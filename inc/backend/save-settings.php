@@ -35,6 +35,6 @@ $aptf_settings = array('consumer_key' => $consumer_key,
     'display_follow_button'=>isset($display_follow_button)?1:0
 );
 update_option('aptf_settings', $aptf_settings);
-$_SESSION['aptf_msg'] = __('Settings Saved Successfully',APTF_TD);
+$_SESSION['aptf_msg'] = __('Settings Saved Successfully','accesspress-twitter-feed');
 wp_redirect(admin_url().'admin.php?page=ap-twitter-feed');
 

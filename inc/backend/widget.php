@@ -11,8 +11,8 @@ class APTF_Widget extends WP_Widget {
     function __construct() {
         parent::__construct(
                 'aptf_widget', // Base ID
-                __('AccessPress Twitter Feeds', APTF_TD), // Name
-                array('description' => __('AccessPress Twitter Feed Widget', APTF_TD)) // Args
+                __('AccessPress Twitter Feeds', 'accesspress-twitter-feed'), // Name
+                array('description' => __('AccessPress Twitter Feed Widget', 'accesspress-twitter-feed')) // Args
         );
     }
 
@@ -54,11 +54,11 @@ class APTF_Widget extends WP_Widget {
         
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('template'); ?>"><?php _e('Template:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('template'); ?>"><?php _e('Template:', 'accesspress-twitter-feed'); ?></label> 
             <select class="widefat" id="<?php echo $this->get_field_id('template'); ?>" name="<?php echo $this->get_field_name('template'); ?>" >
                 <option value="">Default</option>
                 <?php for($i=1;$i<=3;$i++){
@@ -69,7 +69,7 @@ class APTF_Widget extends WP_Widget {
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('follow_button'); ?>"><?php _e('Display Follow Button:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('follow_button'); ?>"><?php _e('Display Follow Button:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('follow_button'); ?>" name="<?php echo $this->get_field_name('follow_button'); ?>" type="checkbox" value="1" <?php checked($follow_button,true);?>/>
         </p>
         <?php

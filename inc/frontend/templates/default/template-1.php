@@ -61,7 +61,7 @@
                     } else {
                         ?>
 
-                        <p><a href="http://twitter.com/'<?php echo $username; ?> " target="_blank"><?php _e('Click here to read ' . $username . '\'S Twitter feed', APTF_TD); ?></a></p>
+                        <p><a href="http://twitter.com/'<?php echo $username; ?> " target="_blank"><?php _e('Click here to read ' . $username . '\'S Twitter feed', 'accesspress-twitter-feed'); ?></a></p>
                         <?php
                     }
                     ?>

@@ -4,10 +4,10 @@ defined('ABSPATH') or die('No script kiddies please!');
  * Plugin Name: AccessPress Twitter Feed
  * Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-twitter-feed/
  * Description: A plugin to show your twitter feed in your site with various configurable settings
- * Version: 1.3.1
+ * Version: 1.3.4
  * Author: AccessPress Themes
  * Author URI: http://accesspressthemes.com
- * Text Domain: ap-twitter-feed
+ * Text Domain: accesspress-twitter-feed
  * Domain Path: /languages/
  * License: GPL
  */
@@ -24,11 +24,11 @@ if (!defined('APTF_CSS_DIR')) {
     define('APTF_CSS_DIR', plugin_dir_url(__FILE__) . 'css');
 }
 if (!defined('APTF_VERSION')) {
-    define('APTF_VERSION', '1.3.0');
+    define('APTF_VERSION', '1.3.4');
 }
 
 if (!defined('APTF_TD')) {
-    define('APTF_TD', 'ap-twitter-feed');
+    define('APTF_TD', 'accesspress-twitter-feed');
 }
 include_once('inc/backend/widget.php');
 include_once('inc/backend/slider-widget.php');
@@ -63,7 +63,7 @@ if (!class_exists('APTF_Class')) {
          * 
          */
         function load_text_domain() {
-            load_plugin_textdomain(APTF_TD, false, basename(dirname(__FILE__)) . '/languages');
+            load_plugin_textdomain('accesspress-twitter-feed', false, basename(dirname(__FILE__)) . '/languages');
         }
 
         /**
@@ -90,7 +90,7 @@ if (!class_exists('APTF_Class')) {
          * Adds plugin's menu in the admin section
          */
         function add_plugin_admin_menu() {
-            add_menu_page(__('AccessPress Twitter Feed', APTF_TD), __('AccessPress Twitter Feed', APTF_TD), 'manage_options', 'ap-twitter-feed', array($this, 'main_setting_page'), 'dashicons-twitter');
+            add_menu_page(__('AccessPress Twitter Feed', 'accesspress-twitter-feed'), __('AccessPress Twitter Feed', 'accesspress-twitter-feed'), 'manage_options', 'ap-twitter-feed', array($this, 'main_setting_page'), 'dashicons-twitter');
         }
 
         /**
@@ -162,7 +162,7 @@ if (!class_exists('APTF_Class')) {
             if (!empty($_GET) && wp_verify_nonce($_GET['_wpnonce'], 'aptf-restore-nonce')) {
                 $aptf_settings = $this->get_default_settings();
                 update_option('aptf_settings', $aptf_settings);
-                $_SESSION['aptf_msg'] = __('Default Settings Restored Successfully.', APTF_TD);
+                $_SESSION['aptf_msg'] = __('Default Settings Restored Successfully.', 'accesspress-twitter-feed');
                 wp_redirect(admin_url() . 'admin.php?page=ap-twitter-feed');
             } else {
                 die('No script kiddies please!');
@@ -196,7 +196,7 @@ if (!class_exists('APTF_Class')) {
          */
         function aptf_delete_cache() {
             delete_transient('aptf_tweets');
-            $_SESSION['aptf_msg'] = __('Cache Deleted Successfully.', APTF_TD);
+            $_SESSION['aptf_msg'] = __('Cache Deleted Successfully.', 'accesspress-twitter-feed');
             wp_redirect(admin_url() . 'admin.php?page=ap-twitter-feed');
         }
         
@@ -233,37 +233,37 @@ if (!class_exists('APTF_Class')) {
 
             if ($years >= 1) {
                 if($years == 1){
-                    $date = $years . __(' year ago', APTF_TD);
+                    $date = $years . __(' year ago', 'accesspress-twitter-feed');
                 }
                 else
                 {
-                    $date = $years . __(' year ago', APTF_TD);    
+                    $date = $years . __(' year ago', 'accesspress-twitter-feed');    
                 }
                 
             } elseif ($days >= 1) {
                 if($days == 1){
-                $date = $days . __(' day ago', APTF_TD);    
+                $date = $days . __(' day ago', 'accesspress-twitter-feed');    
                 }
                 else
                 {
-                    $date = $days . __(' days ago', APTF_TD);
+                    $date = $days . __(' days ago', 'accesspress-twitter-feed');
                 }
                 
             } elseif ($hours >= 1) {
                 if($hours == 1){
-                 $date = $hours . __(' hour ago', APTF_TD);    
+                 $date = $hours . __(' hour ago', 'accesspress-twitter-feed');    
                 }
                 else
                 {
-                    $date = $hours . __(' hours ago', APTF_TD);
+                    $date = $hours . __(' hours ago', 'accesspress-twitter-feed');
                 }
                 
             } elseif ($minutes > 1) {
-                                    $date = $minutes . __(' minutes ago', APTF_TD);
+                                    $date = $minutes . __(' minutes ago', 'accesspress-twitter-feed');
                 
                 
             } else {
-                $date = __("1 minute ago", APTF_TD);
+                $date = __("1 minute ago", 'accesspress-twitter-feed');
                 }
                 break;
                 default:

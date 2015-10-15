@@ -1,5 +1,5 @@
 <div class="aptf-single-board-wrapper" id="aptf-about-board" style="display: none">
-    <h3><?php _e('About', APTF_TD); ?></h3>
+    <h3><?php _e('About', 'accesspress-twitter-feed'); ?></h3>
 
     <p><strong>AccessPress Twitter Feed </strong> - is a FREE WordPress Plugin by AccessPress Themes. </p>
 

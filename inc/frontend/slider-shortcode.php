@@ -17,7 +17,7 @@ if(isset($atts['follow_button'])){
 }
 if(isset($tweets->errors)){
     //$this->print_array($tweets);
-    $fallback_message = ($aptf_settings['fallback_message']=='')?__('Something went wrong with the twitter.',APTF_TD):$aptf_settings['fallback_message'];
+    $fallback_message = ($aptf_settings['fallback_message']=='')?__('Something went wrong with the twitter.','accesspress-twitter-feed'):$aptf_settings['fallback_message'];
     ?>
 <p><?php echo $fallback_message;?></p>
         <?php

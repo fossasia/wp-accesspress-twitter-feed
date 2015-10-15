@@ -11,8 +11,8 @@ class APTF_Slider_Widget extends WP_Widget {
     function __construct() {
         parent::__construct(
                 'aptf_slider_widget', // Base ID
-                __('AccessPress Tweets Slider', APTF_TD), // Name
-                array('description' => __('AccessPress Tweets Slider Widget', APTF_TD)) // Args
+                __('AccessPress Tweets Slider', 'accesspress-twitter-feed'), // Name
+                array('description' => __('AccessPress Tweets Slider Widget', 'accesspress-twitter-feed')) // Args
         );
     }
 
@@ -56,23 +56,23 @@ class APTF_Slider_Widget extends WP_Widget {
         
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('controls'); ?>"><?php _e('Slider Controls:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('controls'); ?>"><?php _e('Slider Controls:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('controls'); ?>" name="<?php echo $this->get_field_name('controls'); ?>" type="checkbox" value="1" <?php checked($controls,true);?>/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('slide_duration'); ?>"><?php _e('Slide Duration:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('slide_duration'); ?>"><?php _e('Slide Duration:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('slide_duration'); ?>" name="<?php echo $this->get_field_name('slide_duration'); ?>" type="text" placeholder="e.g: 1000" value="<?php echo $slide_duration;?>"/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('auto_slide'); ?>"><?php _e('Auto Slide:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('auto_slide'); ?>"><?php _e('Auto Slide:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('auto_slide'); ?>" name="<?php echo $this->get_field_name('auto_slide'); ?>" type="checkbox" value="1" <?php checked($auto_slide,true);?>/>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('template'); ?>"><?php _e('Template:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('template'); ?>"><?php _e('Template:', 'accesspress-twitter-feed'); ?></label> 
             <select class="widefat" id="<?php echo $this->get_field_id('template'); ?>" name="<?php echo $this->get_field_name('template'); ?>" >
                 <?php for($i=1;$i<=3;$i++){
                     ?>
@@ -82,7 +82,7 @@ class APTF_Slider_Widget extends WP_Widget {
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('follow_button'); ?>"><?php _e('Display Follow Button:', APTF_TD); ?></label> 
+            <label for="<?php echo $this->get_field_id('follow_button'); ?>"><?php _e('Display Follow Button:', 'accesspress-twitter-feed'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('follow_button'); ?>" name="<?php echo $this->get_field_name('follow_button'); ?>" type="checkbox" value="1" <?php checked($follow_button,true);?>/>
         </p>
         <?php

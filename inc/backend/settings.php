@@ -42,9 +42,9 @@ $aptf_settings = $this->aptf_settings;
                 wp_nonce_field('aptf_action_nonce', 'aptf_nonce_field');
                 $restore_nonce = wp_create_nonce('aptf-restore-nonce');
                 ?>
-                <input type="submit" name="aptf_settings_submit" value="<?php _e('Save Settings', APTF_TD); ?>" class="button button-primary"/>
-                <a href="<?php echo admin_url() . 'admin-post.php?action=aptf_restore_settings&_wpnonce=' . $restore_nonce; ?>" onclick="return confirm('<?php _e('Are you sure you want to restore default settings?', APTF_TD) ?>');"><input type="button" value="<?php _e('Restore Default Settings', APTF_TD); ?>" class="button button-primary"/></a>
-                <a href="<?php echo admin_url() . 'admin-post.php?action=aptf_delete_cache'; ?>" onclick="return confirm('<?php _e('Are you sure you want to delete cache?', APTF_TD) ?>');"><input type="button" value="<?php _e('Delete Cache', APTF_TD); ?>" class="button button-primary"/></a>
+                <input type="submit" name="aptf_settings_submit" value="<?php _e('Save Settings', 'accesspress-twitter-feed'); ?>" class="button button-primary"/>
+                <a href="<?php echo admin_url() . 'admin-post.php?action=aptf_restore_settings&_wpnonce=' . $restore_nonce; ?>" onclick="return confirm('<?php _e('Are you sure you want to restore default settings?', 'accesspress-twitter-feed') ?>');"><input type="button" value="<?php _e('Restore Default Settings', 'accesspress-twitter-feed'); ?>" class="button button-primary"/></a>
+                <a href="<?php echo admin_url() . 'admin-post.php?action=aptf_delete_cache'; ?>" onclick="return confirm('<?php _e('Are you sure you want to delete cache?', 'accesspress-twitter-feed') ?>');"><input type="button" value="<?php _e('Delete Cache', 'accesspress-twitter-feed'); ?>" class="button button-primary"/></a>
             </form>
         </div>
     </div>

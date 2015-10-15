@@ -119,7 +119,11 @@
     line-height: 1.6;
     margin-left: 2px;
     padding-top: 5px;
-    width: calc( 100% - 26px );
+    width: calc( 100% - 12px );
+    background-color: aliceblue;
+    padding: 5px;
+    margin-top: 10px;
+    box-shadow: 0 0 2px;
  }
  .aptf-option-note a{
    padding: 0 3px;

@@ -1,5 +1,5 @@
 <div class="aptf-single-board-wrapper" id="aptf-how_to_use-board" style="display:none">
-    <h3><?php _e('How to use', APTF_TD); ?></h3>
+    <h3><?php _e('How to use', 'accesspress-twitter-feed'); ?></h3>
     <p>There are two methods to display your Twitter Feeds in your site using AccessPress Twitter Feed Plugin.</p>
     <h4>Normal Feeds</h4>
     <p>For displaying Twitter Feeds in normal manner, you can use <br><br/>[ap-twitter-feed]<br/><br/> shortcode or AccessPress Twitter Feed Widget in any registered widget area from Appearance Widget Section.You can also pass template parameter in the shortcode such as <br/>
