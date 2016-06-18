@@ -6,6 +6,8 @@
 
         foreach ($tweets as $tweet) {
             //$this->print_array($tweet);
+            $tweet = (object)$tweet;
+            $loklak = $aptf_settings['loklak_api'];
             ?>
 
             <div class="aptf-single-tweet-wrapper">
@@ -17,26 +19,45 @@
                             $the_tweet = ' '.$tweet->text . ' '; //adding an extra space to convert hast tag into links
                             
                             // i. User_mentions must link to the mentioned user's profile.
-                            if (is_array($tweet->entities->user_mentions)) {
+                            if ( !$loklak && is_array($tweet->entities->user_mentions)) {
                                 foreach ($tweet->entities->user_mentions as $key => $user_mention) {
                                     $the_tweet = preg_replace(
                                             '/@' . $user_mention->screen_name . '/i', '<a href="http://www.twitter.com/' . $user_mention->screen_name . '" target="_blank">@' . $user_mention->screen_name . '</a>', $the_tweet);
                                 }
                             }
+                            else if ( $loklak && is_array($tweet->mentions)) {
+                                foreach ($tweet->mentions as $user_mention) {
+                                    $the_tweet = preg_replace(
+                                            '/@' . $user_mention . '/i', '<a href="http://www.twitter.com/' . $user_mention . '" target="_blank">@' . $user_mention . '</a>', $the_tweet);
+                                }
+                            }
 
                             // ii. Hashtags must link to a twitter.com search with the hashtag as the query.
-                            if (is_array($tweet->entities->hashtags)) {
+                            if ( !$loklak && is_array($tweet->entities->hashtags)) {
                                 foreach ($tweet->entities->hashtags as $hashtag) {
                                     $the_tweet = str_replace(' #' . $hashtag->text . ' ', ' <a href="https://twitter.com/search?q=%23' . $hashtag->text . '&src=hash" target="_blank">#' . $hashtag->text . '</a> ', $the_tweet);
                                 }
                             }
 
+                            else if ( $loklak && is_array($tweet->hashtags)) {
+                                foreach ($tweet->hashtags as $hashtag) {
+                                    $the_tweet = str_replace(' #' . $hashtag . ' ', ' <a href="https://twitter.com/search?q=%23' . $hashtag . '&src=hash" target="_blank">#' . $hashtag . '</a> ', $the_tweet);
+                                }
+                            }
+
                             // iii. Links in Tweet text must be displayed using the display_url
                             //      field in the URL entities API response, and link to the original t.co url field.
-                            if (is_array($tweet->entities->urls)) {
+                            
+                            if ( !$loklak && is_array($tweet->entities->urls)) {
                                 foreach ($tweet->entities->urls as $key => $link) {
                                     $the_tweet = preg_replace(
                                             '`' . $link->url . '`', '<a href="' . $link->url . '" target="_blank">' . $link->url . '</a>', $the_tweet);
+                                }
+                            }
+                            else if ( $loklak && is_array($tweet->links)) {
+                                foreach ($tweet->links as $link) {
+                                    $the_tweet = preg_replace(
+                                            '`' . $link . '`', '<a href="' . $link . '" target="_blank">' . $link . '</a>', $the_tweet);
                                 }
                             }
 

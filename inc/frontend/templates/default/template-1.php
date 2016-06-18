@@ -1,7 +1,5 @@
 <div class="aptf-tweets-wrapper aptf-template-1"><?php
-    //var_dump($tweets);
     if (is_array($tweets)) {
-        //var_dump($tweets);
 
 // to use with intents
         //echo '<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>';
