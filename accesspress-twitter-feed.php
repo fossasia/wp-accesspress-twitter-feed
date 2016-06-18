@@ -33,6 +33,7 @@ if (!defined('APTF_TD')) {
 include_once('inc/backend/widget.php');
 include_once('inc/backend/slider-widget.php');
 include_once("twitteroauth/twitteroauth.php");
+include_once("loklak_php_api/loklak.php");
 if (!class_exists('APTF_Class')) {
 
     class APTF_Class {
@@ -302,16 +303,17 @@ if (!class_exists('APTF_Class')) {
 
         function get_twitter_tweets($username,$tweets_number){
             $tweets = get_transient('aptf_tweets');
-            if (false === $tweets) {
+            if (empty((array)$tweets) || false === $tweets ) 
+            {
                 $aptf_settings = $this->aptf_settings;
                 if($aptf_settings['loklak_api'])
                 {
                     $loklak = new Loklak();
+                    $username = explode('@', $username)[1];
                     $tweets = $loklak->search('', null, null, $username, $tweets_number);
                     $tweets = json_decode($tweets, true);
                     $tweets = json_decode($tweets['body'], true);
-                    $tweets = $tweets['statuses'];  
-                    $tweets = (object)$tweets;
+                    $tweets = $tweets['statuses'];
                 }
                 else {
                     $consumer_key = $aptf_settings['consumer_key'];
@@ -327,8 +329,7 @@ if (!class_exists('APTF_Class')) {
                     set_transient('aptf_tweets', $tweets, $cache_period);
                 }
                 
-            } 
-            
+            }             
         	return $tweets;
         }
         
