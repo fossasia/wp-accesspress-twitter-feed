@@ -131,7 +131,6 @@ if (!class_exists('APTF_Class')) {
                 'fallback_message'=>'',
                 'display_follow_button'=>0
             );
-            var_dump($default_settings);
             return $default_settings;
         }
         

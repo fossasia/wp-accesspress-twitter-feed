@@ -19,7 +19,8 @@ foreach ($_POST as $key => $val) {
     $$key = sanitize_text_field($val);
 }
 
-$aptf_settings = array('consumer_key' => $consumer_key,
+$aptf_settings = array('loklak_api' => $loklak_api,
+    'consumer_key' => $consumer_key,
     'consumer_secret' => $consumer_secret,
     'access_token' => $access_token,
     'access_token_secret' => $access_token_secret,
