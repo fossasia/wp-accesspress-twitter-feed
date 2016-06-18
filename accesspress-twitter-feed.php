@@ -304,12 +304,23 @@ if (!class_exists('APTF_Class')) {
             $tweets = get_transient('aptf_tweets');
             if (false === $tweets) {
                 $aptf_settings = $this->aptf_settings;
-                $consumer_key = $aptf_settings['consumer_key'];
-                $consumer_secret = $aptf_settings['consumer_secret'];
-                $access_token = $aptf_settings['access_token'];
-                $access_token_secret = $aptf_settings['access_token_secret'];
-        	    $oauth_connection = $this->get_oauth_connection($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-        	    $tweets = $oauth_connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$tweets_number);
+                if($aptf_settings['loklak_api'])
+                {
+                    $loklak = new Loklak();
+                    $tweets = $loklak->search('', null, null, $username, $tweets_number);
+                    $tweets = json_decode($tweets, true);
+                    $tweets = json_decode($tweets['body'], true);
+                    $tweets = $tweets['statuses'];  
+                    $tweets = (object)$tweets;
+                }
+                else {
+                    $consumer_key = $aptf_settings['consumer_key'];
+                    $consumer_secret = $aptf_settings['consumer_secret'];
+                    $access_token = $aptf_settings['access_token'];
+                    $access_token_secret = $aptf_settings['access_token_secret'];
+            	    $oauth_connection = $this->get_oauth_connection($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+            	    $tweets = $oauth_connection->get("https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=".$username."&count=".$tweets_number);
+                }
                 $cache_period = intval($aptf_settings['cache_period']) * 60;
                 $cache_period = ($cache_period < 1) ? 3600 : $cache_period;
                 if(!isset($tweets->errors)){

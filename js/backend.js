@@ -27,20 +27,14 @@
         aptf_update_twitter_auth(true);
       }
 
-        $("input[name='loklak_api']").live('change', function() {
-          if($(this).is(':checked')){
-            aptf_update_twitter_auth(true);
-          }
-          else {
-            aptf_update_twitter_auth(false);
-          }
+      $("input[name='loklak_api']").live('change', function() {
+        if($(this).is(':checked')){
+          aptf_update_twitter_auth(true);
+        }
+        else {
+          aptf_update_twitter_auth(false);
+        }
       });
-       
-	   
+          
 	});
 }(jQuery));
-
-
-
-  
-  
