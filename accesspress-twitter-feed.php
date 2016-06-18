@@ -303,6 +303,7 @@ if (!class_exists('APTF_Class')) {
 
         function get_twitter_tweets($username,$tweets_number){
             $tweets = get_transient('aptf_tweets');
+            //$this->print_array($tweets);
             if (empty((array)$tweets) || false === $tweets ) 
             {
                 $aptf_settings = $this->aptf_settings;
