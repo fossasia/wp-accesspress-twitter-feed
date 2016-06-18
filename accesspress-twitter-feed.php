@@ -115,7 +115,8 @@ if (!class_exists('APTF_Class')) {
          * @return array
          */
         function get_default_settings() {
-            $default_settings = array('consumer_key' => '',
+            $default_settings = array('loklak_api' => '',
+                'consumer_key' => '',
                 'consumer_secret' => '',
                 'access_token' => '',
                 'access_token_secret' => '',
@@ -130,6 +131,7 @@ if (!class_exists('APTF_Class')) {
                 'fallback_message'=>'',
                 'display_follow_button'=>0
             );
+            var_dump($default_settings);
             return $default_settings;
         }
         

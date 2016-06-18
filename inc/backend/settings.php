@@ -1,6 +1,6 @@
 <?php
 $aptf_settings = $this->aptf_settings;
-//$this->print_array($aptf_settings);
+$this->print_array($aptf_settings);
 ?>
 <div class="wrap">
     <div class="aptf-panel">

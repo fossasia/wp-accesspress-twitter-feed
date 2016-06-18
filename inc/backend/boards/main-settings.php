@@ -1,5 +1,12 @@
 <div class="aptf-single-board-wrapper" id="aptf-settings-board">
     <h3><?php _e('Settings', 'accesspress-twitter-feed'); ?></h3>
+     <div class="aptf-option-wrapper">
+        <label>Loklak API</label>
+        <div class="aptf-option-field">
+            <input type="checkbox" name="loklak_api" value="1" <?php checked($aptf_settings['loklak_api'],true);?>/>
+            <div class="aptf-option-note"><?php _e('Check to use anonymous API of <a href="http://loklak.org/">loklak.org</a> and get plugin data through loklak (no registration and authentication required). <a href="http://loklak.org/">Find out more</a> ', 'accesspress-twitter-feed'); ?></div>
+        </div>
+    </div>
     <div class="aptf-option-wrapper">
         <label>Twitter Consumer Key</label>
         <div class="aptf-option-field">
