@@ -30,10 +30,13 @@ if (!defined('APTF_VERSION')) {
 if (!defined('APTF_TD')) {
     define('APTF_TD', 'accesspress-twitter-feed');
 }
+if(!class_exists('Loklak')) {
+    include_once("loklak_php_api/loklak.php");
+}
 include_once('inc/backend/widget.php');
 include_once('inc/backend/slider-widget.php');
 include_once("twitteroauth/twitteroauth.php");
-include_once("loklak_php_api/loklak.php");
+
 if (!class_exists('APTF_Class')) {
 
     class APTF_Class {
